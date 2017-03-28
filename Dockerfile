@@ -1,8 +1,10 @@
 FROM revgen/docker-base
 
-RUN apt-get update && apt-get install -y npm
+RUN apt-get update && apt-get install -y curl build-essential
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - 
+
+RUN apt-get install -y nodejs
 
 RUN npm install pm2 -g
 
